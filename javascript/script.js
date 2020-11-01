@@ -15,9 +15,13 @@ greenBalloon.src = "/images/green-balloon.png"
 const yellowBalloon = new Image ();
 yellowBalloon.src = "/images/yellow-balloon.png"
 
+const pop = new Image ();
+pop.src = "/images/pop.png"
+
 // DRAW BALLOONS
 const weight = 75;
 const height = 100;
+const balloons = [redBalloon, blueBalloon, yellowBalloon, greenBalloon];
 
 const drawBalloon = () => {
     ctx.drawImage (randomBalloons0, 75, 175, weight, height);
@@ -30,11 +34,14 @@ const drawBalloon = () => {
     ctx.drawImage (randomBalloons7, 450, 25, weight, height);
 };
 
+// POSITION (NO SE COMO HACERLO)
+
 let balloonX = [75, 200, 325, 450];
 let balloonY = [25, 175]; 
+ 
 
+// RANDOM BALLOONS (FOR EACH/ FOR OF)
 
-const balloons = [redBalloon, blueBalloon, yellowBalloon, greenBalloon]
 const randomBalloons0 = balloons[Math.floor(Math.random() * balloons.length)];
 const randomBalloons1 = balloons[Math.floor(Math.random() * balloons.length)];
 const randomBalloons2 = balloons[Math.floor(Math.random() * balloons.length)];
@@ -44,7 +51,10 @@ const randomBalloons5 = balloons[Math.floor(Math.random() * balloons.length)];
 const randomBalloons6 = balloons[Math.floor(Math.random() * balloons.length)];
 const randomBalloons7 = balloons[Math.floor(Math.random() * balloons.length)];
 
+
+
 // LOADED IMAGES
+
 counter = 0;
 
 blueBalloon.onload = () => {
@@ -73,17 +83,9 @@ const checkIfAllImagesAreLoaded = () => {
 // FUNCTION START
 
 const startGame = () => {
+    clearCanvas()
     drawBalloon()
 }
-
-// const balloons = [    
-//     {name: 'redBalloon' , img: '/images/red-balloon.png'},
-//     {name: 'blueBalloon' , img: '/images/blue-balloon.png'},
-//     {name: 'yellowBalloon' , img: '/images/yellow-balloon.png'},
-//     {name: 'greenBalloon' , img: '/images/green-balloon.png'},
-// ];
-
-const position = []
 
 
 const clearCanvas = () => {
@@ -91,14 +93,14 @@ const clearCanvas = () => {
 };
  
 
-
-
-// MOUSECLICK POSITION
+// MOUSECLICK POSITION + DRAW POP
 
 function getMousePosition(canvas, event) { 
     let rect = canvas.getBoundingClientRect(); 
     let x = event.clientX - rect.left; 
     let y = event.clientY - rect.top; 
+    
+    ctx.drawImage (pop , x-35, y-50, weight, height)
     console.log("Coordinate x: " + x,  
                 "Coordinate y: " + y); 
 } 
@@ -107,5 +109,16 @@ let canvasElem = document.querySelector("canvas");
   
 canvasElem.addEventListener("mousedown", function(e) 
 { 
-    getMousePosition(canvasElem, e); 
+    getMousePosition(canvasElem, e);  
 });
+
+
+// for (i = 0; i < balloons.length; i++) {
+//     let ball = balloons[i];
+//     const drawBalloon1 = () => {
+//         const randomBalloons = ball[Math.floor(Math.random() * balloons.length)];
+//         ctx.drawImage (randomBalloons, 300, 150, weight, height);
+//         clearCanvas()
+//         drawBalloon1()
+//     };   
+// };
