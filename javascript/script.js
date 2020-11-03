@@ -30,6 +30,8 @@ const height = 100;
 let mouseX = 0;
 let tmouseY = 0;
 
+let balloonPopAudio = new Audio ("/sounds/Balloon popping.mp3")
+
 const balloons = [redBalloon, blueBalloon, yellowBalloon, greenBalloon];
 
 // let balloonX = [75, 200, 325, 450];
@@ -127,6 +129,9 @@ const checkBallons = (mouseX, mouseY) => {
       mouseY > balloon.y &&
       mouseY < balloon.y + balloon.height
     ) {
+      balloonPopAudio.play()
+      scr++;
+      score.innerHTML ="Score: "+scr;
       return {
         name: pop,
         x: balloon.x,
@@ -143,6 +148,9 @@ const checkBallons = (mouseX, mouseY) => {
 };
 
 
+
+
+// ctx.drawImage(pop, balloon.x, balloon.y, 75, 100)
 
 // LOADED IMAGES
 
@@ -188,7 +196,20 @@ document.getElementById('start-button').onclick = (event) => {
 
     checkImages();
     startGame();
-  
+
+    var timeleft = 10;
+    var countdown = setInterval(function(){
+    if(timeleft <= 0){
+      clearInterval(countdown);
+      document.getElementById("timer").innerHTML = "Finished";
+      ctx.drawImage(blank, 0, 0, 600, 300)
+    //  GameOver()
+    } else {
+      document.getElementById("timer").innerHTML = "Timer: "+ timeleft;
+    }
+    timeleft -= 1;
+  }, 1000);
+    
   }
 };
 
@@ -201,8 +222,20 @@ const clearCanvas = () => {
   ctx.clearRect(0, 0, 600, 300);
 };
 
+// RESET GAME
+
+document.getElementById('reset-button').onclick = (event) => {
+  if(clickable){
+
+  }
+};
 
 // MOUSECLICK POSITION
+
+let scr = 0;
+var score = document.getElementById('scr');
+ 
+
 
 function getMousePosition(canvas, event) {
   let rect = canvas.getBoundingClientRect();
@@ -219,3 +252,9 @@ canvasElem.addEventListener("mousedown", function (e) {
   
 });
 
+
+const GameOver = ()=>{
+  ctx.font = '50px sans-serif'
+  ctx.textAlign = 'center'
+  ctx.fillText('GAME OVER', 250, 350)
+}
