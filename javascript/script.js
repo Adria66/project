@@ -18,7 +18,12 @@ yellowBalloon.src = "/images/yellow-balloon.png"
 const pop = new Image ();
 pop.src = "/images/pop.png"
 
+const blank = new Image ();
+blank.src = "/images/blank.png"
+
+
 // DRAW BALLOONS
+
 const weight = 75;
 const height = 100;
 
@@ -27,8 +32,8 @@ let tmouseY = 0;
 
 const balloons = [redBalloon, blueBalloon, yellowBalloon, greenBalloon];
 
-let balloonX = [75, 200, 325, 450];
-let balloonY = [25, 175];
+// let balloonX = [75, 200, 325, 450];
+// let balloonY = [25, 175];
 
 const randomBalloons0 = balloons[Math.floor(Math.random() * balloons.length)];
 const randomBalloons1 = balloons[Math.floor(Math.random() * balloons.length)];
@@ -111,6 +116,7 @@ const drawBalloon = () => {
 };
 
 
+
 //------------ Función para sustituir los globos -----------------
 
 const checkBallons = (mouseX, mouseY) => {
@@ -127,7 +133,6 @@ const checkBallons = (mouseX, mouseY) => {
         y: balloon.y,
         width: balloon.width,
         height: balloon.height,
-        
       };
     } else {
       return balloon;
@@ -137,17 +142,11 @@ const checkBallons = (mouseX, mouseY) => {
   return randomBallons;
 };
 
-let popTime = setInterval(() => {
-    pop1(checkBallons)
-}, 2000);
-function pop1(){
-    ctx.beginPath();
-    ctx.fillStyle = "#ffffff";
-    ctx.rect(this.x,this.y,75,100)
-    ctx.fill();
-}
+
+
 // LOADED IMAGES
 
+const checkImages = () =>{
 counter = 0;
 
 blueBalloon.onload = () => {
@@ -166,14 +165,32 @@ greenBalloon.onload = () => {
   counter++;
   checkIfAllImagesAreLoaded();
 };
-
+pop.onload = () => {
+  counter++;
+  checkIfAllImagesAreLoaded();
+}
+blank.onload = () => {
+  counter++;
+  checkIfAllImagesAreLoaded();
+}
 const checkIfAllImagesAreLoaded = () => {
-  if (counter === 4) {
+  if (counter === 6) {
     startGame();
   }
 };
+}
 
 // FUNCTION START
+let clickable = true
+
+document.getElementById('start-button').onclick = (event) => {
+  if(clickable){
+
+    checkImages();
+    startGame();
+  
+  }
+};
 
 const startGame = () => {
   drawBalloon();
@@ -183,7 +200,10 @@ const position = [];
 const clearCanvas = () => {
   ctx.clearRect(0, 0, 600, 300);
 };
+
+
 // MOUSECLICK POSITION
+
 function getMousePosition(canvas, event) {
   let rect = canvas.getBoundingClientRect();
   mouseX = event.clientX - rect.left;
@@ -196,4 +216,6 @@ canvasElem.addEventListener("mousedown", function (e) {
   getMousePosition(canvasElem, e);
   checkBallons(mouseX, mouseY);
   drawBalloon();
+  
 });
+
