@@ -240,10 +240,11 @@ document.getElementById('reset-button').onclick = (event) => {
   document.getElementById("timer").innerHTML = "Timer:  ";
   document.getElementById("scr").innerHTML = "Score: ";
   
-  // document.getElementById('canvas').reset;
-  // canvas.getContext('2d').reset;
+  // document.getElementById('canvas');
+  // canvas.getContext('2d');
   // clearCanvas()
   // startGame()
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   document.getElementById("start-button").click()
     

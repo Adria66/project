@@ -3,7 +3,7 @@ canvas {
   }
 
 body {
-  background-image: url(./images/background.png) ;
+  background-image: url(../images/background.png) ;
   background-size: cover;
   background-repeat: no-repeat;
   justify-content: center;
@@ -12,7 +12,7 @@ body {
 
 .canvas-position {
 
-  margin-top: 15%;
+  margin-top: 17%;
   margin-left: 25%;
   margin-right: 25%;
   
