@@ -4,22 +4,22 @@ const ctx = canvas.getContext('2d');
 // BALLOONS
 
 const redBalloon = new Image ();
-redBalloon.src = "/images/red-balloon.png"
+redBalloon.src = "./images/red-balloon.png"
 
 const blueBalloon = new Image ();
-blueBalloon.src = "/images/blue-balloon.png"
+blueBalloon.src = "./images/blue-balloon.png"
 
 const greenBalloon = new Image ();
-greenBalloon.src = "/images/green-balloon.png"
+greenBalloon.src = "./images/green-balloon.png"
 
 const yellowBalloon = new Image ();
-yellowBalloon.src = "/images/yellow-balloon.png"
+yellowBalloon.src = "./images/yellow-balloon.png"
 
 const pop = new Image ();
-pop.src = "/images/pop.png"
+pop.src = "./images/pop.png"
 
 const blank = new Image ();
-blank.src = "/images/blank.png"
+blank.src = "./images/blank.png"
 
 
 // DRAW BALLOONS
