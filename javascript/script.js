@@ -4,22 +4,22 @@ const ctx = canvas.getContext('2d');
 // BALLOONS
 
 const redBalloon = new Image ();
-redBalloon.src = "../images/red-balloon.png"
+redBalloon.src = "./images/red-balloon.png"
 
 const blueBalloon = new Image ();
-blueBalloon.src = "../images/blue-balloon.png"
+blueBalloon.src = "./images/blue-balloon.png"
 
 const greenBalloon = new Image ();
-greenBalloon.src = "../images/green-balloon.png"
+greenBalloon.src = "./images/green-balloon.png"
 
 const yellowBalloon = new Image ();
-yellowBalloon.src = "../images/yellow-balloon.png"
+yellowBalloon.src = "./images/yellow-balloon.png"
 
 const pop = new Image ();
-pop.src = "../images/pop.png"
+pop.src = "./images/pop.png"
 
 const blank = new Image ();
-blank.src = "../images/blank.png"
+blank.src = "./images/blank.png"
 
 
 // DRAW BALLOONS
@@ -30,7 +30,7 @@ const height = 100;
 let mouseX = 0;
 let mouseY = 0;
 
-let balloonPopAudio = new Audio ("/sounds/Balloon_popping.mp3")
+let balloonPopAudio = new Audio ("./sounds/Balloon_popping.mp3")
 
 const balloons = [redBalloon, blueBalloon, yellowBalloon, greenBalloon];
 
@@ -50,7 +50,7 @@ let randomBallons = [
     y: 175,
     width: weight,
     height: height,
-    sound: new Audio ("/sounds/Balloon_popping.mp3"),
+    sound: new Audio ("./sounds/Balloon_popping.mp3"),
   },
   {
     name: randomBalloons1,
@@ -58,7 +58,7 @@ let randomBallons = [
     y: 175,
     width: weight,
     height: height,
-    sound: new Audio ("/sounds/Balloon_popping.mp3"),
+    sound: new Audio ("./sounds/Balloon_popping.mp3"),
   },
   {
     name: randomBalloons2,
@@ -66,7 +66,7 @@ let randomBallons = [
     y: 175,
     width: weight,
     height: height,
-    sound: new Audio ("/sounds/Balloon_popping.mp3"),
+    sound: new Audio ("./sounds/Balloon_popping.mp3"),
   },
   {
     name: randomBalloons3,
@@ -74,7 +74,7 @@ let randomBallons = [
     y: 175,
     width: weight,
     height: height,
-    sound: new Audio ("/sounds/Balloon_popping.mp3"),
+    sound: new Audio ("./sounds/Balloon_popping.mp3"),
   },
   {
     name: randomBalloons4,
@@ -82,7 +82,7 @@ let randomBallons = [
     y: 25,
     width: weight,
     height: height,
-    sound: new Audio ("/sounds/Balloon_popping.mp3"),
+    sound: new Audio ("./sounds/Balloon_popping.mp3"),
   },
   {
     name: randomBalloons5,
@@ -90,7 +90,7 @@ let randomBallons = [
     y: 25,
     width: weight,
     height: height,
-    sound: new Audio ("/sounds/Balloon_popping.mp3"),
+    sound: new Audio ("./sounds/Balloon_popping.mp3"),
   },
   {
     name: randomBalloons6,
@@ -98,7 +98,7 @@ let randomBallons = [
     y: 25,
     width: weight,
     height: height,
-    sound: new Audio ("/sounds/Balloon_popping.mp3"),
+    sound: new Audio ("./sounds/Balloon_popping.mp3"),
   },
   {
     name: randomBalloons7,
@@ -106,7 +106,7 @@ let randomBallons = [
     y: 25,
     width: weight,
     height: height,
-    sound: new Audio ("/sounds/Balloon_popping.mp3"),
+    sound: new Audio ("./sounds/Balloon_popping.mp3"),
   },
 ];
 
