@@ -1,5 +1,7 @@
 canvas {
     /* border: 1px solid red; */
+    cursor: crosshair;
+    
   }
 
 body {
@@ -18,20 +20,6 @@ body {
   
 }
 
-.menu-position{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 8%;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  
-}
-
-.center-buttons{
-  display: grid;
-  grid-template-columns: auto;
-}
-
 body button {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border: 0;
@@ -39,6 +27,20 @@ body button {
   border-radius: 5px;
   margin-bottom: 20px;
   color: #fff;
+}
+
+.menu-position{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 6%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
+
+.center-buttons{
+  display: grid;
+  grid-template-columns: auto;
 }
 
 #start-button {

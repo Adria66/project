@@ -42,6 +42,8 @@ const randomBalloons4 = balloons[Math.floor(Math.random() * balloons.length)];
 const randomBalloons5 = balloons[Math.floor(Math.random() * balloons.length)];
 const randomBalloons6 = balloons[Math.floor(Math.random() * balloons.length)];
 const randomBalloons7 = balloons[Math.floor(Math.random() * balloons.length)];
+const randomBalloons8 = balloons[Math.floor(Math.random() * balloons.length)];
+const randomBalloons9 = balloons[Math.floor(Math.random() * balloons.length)];
 
 let randomBallons = [
   {
@@ -104,6 +106,22 @@ let randomBallons = [
     name: randomBalloons7,
     x: 450,
     y: 25,
+    width: weight,
+    height: height,
+    sound: new Audio ("./sounds/Balloon_popping.mp3"),
+  },
+  {
+    name: randomBalloons8,
+    x: 575,
+    y: 25,
+    width: weight,
+    height: height,
+    sound: new Audio ("./sounds/Balloon_popping.mp3"),
+  },
+  {
+    name: randomBalloons9,
+    x: 575,
+    y: 175,
     width: weight,
     height: height,
     sound: new Audio ("./sounds/Balloon_popping.mp3"),
@@ -188,7 +206,7 @@ const checkIfAllImagesAreLoaded = () => {
 };
 }
 
-// FUNCTION START + TIMER
+// FUNCTION START + TIMER + WIN/LOST GAME
 
 let clickable = true
 let countdown 
@@ -196,7 +214,7 @@ let countdown
 document.getElementById('start-button').onclick = (event) => {
   if(clickable){
     
-    // clickable = false
+    clickable = false
     checkImages();
     startGame();
     
@@ -205,12 +223,12 @@ document.getElementById('start-button').onclick = (event) => {
       if(timeleft <= 0){
         clearInterval(countdown);
         document.getElementById("timer").innerHTML = "Finished";
-        ctx.drawImage(blank, 0, 0, 600, 300)
+        ctx.drawImage(blank, 0, 0, 700, 300)
         GameOver()
       } else {
         document.getElementById("timer").innerHTML = "Timer: "+ timeleft;
-        if (scr === 8){
-          ctx.drawImage(blank, 0, 0, 600, 300)
+        if (scr === 10){
+          ctx.drawImage(blank, 0, 0, 700, 300)
           YouWin()
           clearInterval(countdown)
         }
@@ -228,7 +246,7 @@ const startGame = () => {
 // CLEAR CANVAS
 
 const clearCanvas = () => {
-  ctx.clearRect(0, 0, 600, 300);
+  ctx.clearRect(0, 0, 700, 300);
 };
 
 // RESET GAME
@@ -240,15 +258,7 @@ document.getElementById('reset-button').onclick = (event) => {
   document.getElementById("timer").innerHTML = "Timer:  ";
   document.getElementById("scr").innerHTML = "Score: ";
   
-  // document.getElementById('canvas');
-  // canvas.getContext('2d');
-  // clearCanvas()
-  // startGame()
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  document.getElementById("start-button").click()
-    
-  
+  location.reload()
 };
 
 // SCORE
@@ -279,7 +289,7 @@ const GameOver = ()=>{
   ctx.font = 'bold 50px sans-serif'
   ctx.textAlign = 'center'
   ctx.fillStyle = "rgb(135, 0, 11)"
-  ctx.fillText('You Lost', 300, 150)
+  ctx.fillText('You Lost', 350, 150)
   
 }
 
@@ -287,6 +297,6 @@ const YouWin = ()=>{
   ctx.font = 'bold 50px sans-serif'
   ctx.textAlign = 'center'
   ctx.fillStyle = "rgb(0, 25, 135)"
-  ctx.fillText('You Win', 300, 150)
+  ctx.fillText('You Win', 350, 150)
   
 }
